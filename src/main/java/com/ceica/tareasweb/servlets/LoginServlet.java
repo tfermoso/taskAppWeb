@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
         String user=request.getParameter("user");
         String pass=request.getParameter("password");
         if(user.contains("admin") & pass.equals("1234")){
-            request.getRequestDispatcher("admin.jsp").forward(request,response);
+            response.sendRedirect("admin");
         }else{
             request.setAttribute("mensaje","Usuario o Password incorrecto");
             request.getRequestDispatcher("login.jsp").forward(request,response);

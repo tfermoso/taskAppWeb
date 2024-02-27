@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Tomas
@@ -18,5 +19,8 @@
     <input id="password" type="password" name="password">
     <input type="submit" name="Login">
 </form>
+<c:if test="${mensaje!=null}">
+    <p>${mensaje}</p>
+</c:if>
 </body>
 </html>
