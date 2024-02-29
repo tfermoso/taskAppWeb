@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <html>
 <head>
     <title>User</title>
@@ -16,14 +18,18 @@
     </header>
     <hr>
     <div class="datos">
-        <table>
+        <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Descripción</th>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Create Date</th>
+                <th scope="col">Date</th>
+                <th scope="col">OP</th>
             </tr>
             </thead>
+
             <tbody>
             <c:choose>
                 <c:when test="${empty tasks}">
@@ -37,6 +43,11 @@
                             <td><c:out value="${task.idtask}"/></td>
                             <td><c:out value="${task.title}"/></td>
                             <td><c:out value="${task.description}"/></td>
+                            <fmt:formatDate value="${task.create_time}" pattern="dd-MM-yyyy" var="formattedCreate_time" />
+                            <td><c:out value="${formattedCreate_time}" /></td>
+                            <fmt:formatDate value="${task.deadline}" pattern="dd-MM-yyyy" var="formattedDeadline" />
+                            <td><c:out value="${formattedDeadline}" /></td>
+                            <td></td>
                         </tr>
                     </c:forEach>
                 </c:otherwise>
