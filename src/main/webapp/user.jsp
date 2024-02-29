@@ -54,7 +54,15 @@
             </c:choose>
             </tbody>
         </table>
+        <hr>
+        <h3>New task</h3>
+        <form action="" method="post">
+            <input type="text" placeholder="Title" name="title">
+            <input type="text" placeholder="Description" name="description">
+            <input type="datetime-local" name="deadline" placeholder="DeadLine">
+            <input type="submit" name="New">
 
+        </form>
     </div>
 </div>
 
