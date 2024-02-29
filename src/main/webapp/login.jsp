@@ -12,7 +12,7 @@
     <title>login</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="login" method="post">
     <label for="user">Usuario</label>
     <input id="user" type="text" name="user">
     <label for="password">Password</label>
