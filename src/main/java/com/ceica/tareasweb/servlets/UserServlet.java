@@ -1,5 +1,6 @@
 package com.ceica.tareasweb.servlets;
 
+import com.ceica.tareasweb.controller.TaskController;
 import com.ceica.tareasweb.models.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,7 +35,12 @@ public class UserServlet extends HttpServlet {
 
                 if (user.getRol().getDescription().equals("user")) {
                     request.setAttribute("name", user.getUsername());
+                    TaskController taskController=new TaskController();
+                    taskController.userLogged=user;
+
                     request.getRequestDispatcher("user.jsp").forward(request, response);
+
+
                 } else {
                     response.sendRedirect("admin");
                 }
