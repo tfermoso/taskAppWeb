@@ -25,7 +25,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
                 <th scope="col">Create Date</th>
-                <th scope="col">Date</th>
+                <th scope="col">Deadline</th>
                 <th scope="col">OP</th>
             </tr>
             </thead>
