@@ -1,6 +1,7 @@
 package com.ceica.tareasweb.servlets;
 
 import com.ceica.tareasweb.controller.TaskController;
+import com.ceica.tareasweb.models.Task;
 import com.ceica.tareasweb.models.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet(name = "userServlet", value = "/user")
 public class UserServlet extends HttpServlet {
@@ -34,10 +36,11 @@ public class UserServlet extends HttpServlet {
             } else {
 
                 if (user.getRol().getDescription().equals("user")) {
-                    request.setAttribute("name", user.getUsername());
                     TaskController taskController=new TaskController();
                     taskController.userLogged=user;
-
+                    List<Task> taskList=taskController.getAllTaskByUser();
+                    request.setAttribute("name", user.getUsername());
+                    request.setAttribute("tasks",taskList);
                     request.getRequestDispatcher("user.jsp").forward(request, response);
 
 
