@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.List;
 
 @WebServlet(name = "userServlet", value = "/user")
@@ -52,6 +53,17 @@ public class UserServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            response.sendRedirect("login");
+        } else {
+            TaskController taskController=new TaskController();
+            taskController.userLogged=user;
+            String title=request.getParameter("title");
+            String description=request.getParameter("description");
+            LocalDate deadline= LocalDate.parse(request.getParameter("deadline"));
+            taskController.createTask(title,description,deadline);
+            response.sendRedirect("user");
+        }
     }
 }

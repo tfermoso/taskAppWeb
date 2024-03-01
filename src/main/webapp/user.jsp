@@ -59,9 +59,8 @@
         <form action="" method="post">
             <input type="text" placeholder="Title" name="title">
             <input type="text" placeholder="Description" name="description">
-            <input type="datetime-local" name="deadline" placeholder="DeadLine">
+            <input type="date" name="deadline" placeholder="DeadLine">
             <input type="submit" name="New">
-
         </form>
     </div>
 </div>
