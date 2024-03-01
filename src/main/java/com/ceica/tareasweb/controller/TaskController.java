@@ -74,4 +74,9 @@ public class TaskController {
     public boolean updateUser(User user) {
         return user.actualizar("password=?,idrol=? where iduser=?",user.getPassword(),user.getRol().getIdrol(),user.getIduser());
     }
+
+    public boolean deleteTask(int idTask){
+        Task task=new Task();
+        return task.borrar("idtask=?",idTask);
+    }
 }
